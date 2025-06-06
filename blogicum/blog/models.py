@@ -87,7 +87,7 @@ class Post(models.Model):
 
     @property
     def short_text(self):
-        return self.text[:100)
+        return self.text[:100]
 
     class Meta:
         verbose_name = _("публикация")
