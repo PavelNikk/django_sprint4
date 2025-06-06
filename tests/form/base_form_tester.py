@@ -104,8 +104,7 @@ class BaseFormTester(BaseTester):
 
     @property
     @abstractmethod
-    def has_textarea(self):
-        ...
+    def has_textarea(self): ...
 
     @property
     def unauthorized_edit_redirect_cbk(self):
@@ -355,7 +354,7 @@ class BaseFormTester(BaseTester):
         for item in created_items:
             item_adapter = self._ModelAdapter(item)
             prop = item_adapter.item_cls_adapter.displayed_field_name_or_value
-            if not self._ModelAdapter(item).text in content:
+            if self._ModelAdapter(item).text not in content:
                 raise AssertionError(
                     self.creation_assertion_msg(
                         item_adapter.get_student_field_name(prop)
